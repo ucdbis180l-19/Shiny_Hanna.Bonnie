@@ -1,6 +1,12 @@
 
 library(shiny)
 
+# ricedata <- read_csv("Rice_44K_genotypes.csv.gz",na=c("NA","00")) %>%
+#   select(-`6_17160794_1`)
+# colnames(ricedata)[1] <- "ID"
+
+#`Seed length` <dbl>, `Seed width` <dbl>, `Seed volume` <dbl>, `Seed surface area`, Plant
+## #   height
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage( #create the overall page
@@ -16,14 +22,18 @@ shinyUI(fluidPage( #create the overall page
   # Sidebar with a radio box to input which species will be plotted
   sidebarLayout(
     sidebarPanel(
-      radioButtons("species", #the input variable that the value will go into
-                   "Choose a species to display:",
-                   c("setosa",
-                     "versicolor",
-                     "virginica"))),
+      selectInput("xaxistrait", #the input variable that the value will go into
+                   "Choose a trait to display:",
+                   c("Seed length","Seed width","Seed volume", "Seed surface area", "Plant Height")),
+      selectInput("yaxistrait", #the input variable that the value will go into
+                "Choose a trait to display:",
+                c("Seed length","Seed width","Seed volume", "Seed surface area", "Plant Height")),
+      selectInput("colortrait", #the input variable that the value will go into
+              "Choose a trait to display:",
+              c("Seed length","Seed width","Seed volume", "Seed surface area", "Plant Height")),
     
     # Show a plot of the generated distribution
     mainPanel(plotOutput("boxPlot")
     )
   )
-))
+)))
