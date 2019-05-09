@@ -1,14 +1,7 @@
-#
-# This is the server logic of a Shiny web application. You can run the 
-# application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
 library(ggplot2)
+library(tidyverse)
+
 
 # Define server logic required to draw a boxplot
 shinyServer(function(input, output) {
@@ -23,14 +16,13 @@ shinyServer(function(input, output) {
   output$boxPlot <- renderPlot({
     
     # set up the plot
-    pl <- ggplot(data = iris,
+    pl <- ggplot(data = gather(iris, key= "key", value = "value", Sepal.Length,Sepal.Width,Petal.Length,Petal.Width) %>%
+                                 filter(Species == input$species),
                  #Use aes_string below so that input$trait is interpreted
                  #correctly.  The other variables need to be quoted
-                 aes_string(x="Species",
-                            y=input$trait,
-                            fill="Species"
-                 )
-    )
+                 aes(x=key,y=value))
+                 #Sepal.Length,Sepal.Width,Petal.Length,Petal.Width
+    
     
     # draw the boxplot for the specified trait
     pl + geom_boxplot()
