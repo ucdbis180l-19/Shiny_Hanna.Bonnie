@@ -20,8 +20,7 @@ shinyServer(function(input, output) {
     
     # set up the plot
 
-    pl <- ggplot(data = gather(ricedata, key= "key", value = "value", `Seed length`, 
-                               `Seed width`, `Seed volume`, `Seed surface area`, `Plant Height`) %>%
+    pl <- ggplot(data = ricedata,
                  #Use aes below so that our data is interpreted
                  #correctly.  The other variables need to be quoted
                  
