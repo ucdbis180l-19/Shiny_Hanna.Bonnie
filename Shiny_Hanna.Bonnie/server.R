@@ -2,9 +2,9 @@ library(shiny)
 library(ggplot2)
 library(tidyverse)
 
-ricedata <- read_csv("Rice_44K_genotypes.csv.gz",na=c("NA","00")) %>%
-  select(-`6_17160794_1`)
-colnames(ricedata)[1] <- "ID"
+# ricedata <- read_csv("Rice_44K_genotypes.csv.gz",na=c("NA","00")) %>%
+#   select(-`6_17160794_1`)
+# colnames(ricedata)[1] <- "ID"
 
 # Define server logic required to draw a boxplot
 shinyServer(function(input, output) {
