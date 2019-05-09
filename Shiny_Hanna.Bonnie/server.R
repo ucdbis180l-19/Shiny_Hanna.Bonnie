@@ -20,12 +20,13 @@ shinyServer(function(input, output) {
     
     # set up the plot
 
-    pl <- ggplot(data = gather(iris, key= "key", value = "value", Sepal.Length,Sepal.Width,Petal.Length,Petal.Width) %>%
-                 #Use aes below so that input$trait is interpreted
+    pl <- ggplot(data = gather(ricedata, key= "key", value = "value", `Seed length`, 
+                               `Seed width`, `Seed volume`, `Seed surface area`, `Plant Height`) %>%
+                 #Use aes below so that our data is interpreted
                  #correctly.  The other variables need to be quoted
                  
                  aes(x=xaxistrait, y=yaxistrait, color=colortrait))
-                 #Sepal.Length,Sepal.Width,Petal.Length,Petal.Width
+                 # pick 2 of the five traits 
     
     
     
