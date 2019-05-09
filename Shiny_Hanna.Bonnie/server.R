@@ -19,16 +19,16 @@ shinyServer(function(input, output) {
   output$boxPlot <- renderPlot({
     
     # set up the plot
+
     pl <- ggplot(data = gather(iris, key= "key", value = "value", Sepal.Length,Sepal.Width,Petal.Length,Petal.Width) %>%
                                  filter(Species == input$species),
-                 #Use aes_string below so that input$trait is interpreted
+                 #Use aes below so that input$trait is interpreted
                  #correctly.  The other variables need to be quoted
                  aes(x=key,y=value))
                  #Sepal.Length,Sepal.Width,Petal.Length,Petal.Width
 
-    
-    # draw the boxplot for the specified species
-    pl + geom_boxplot()
+    # draw the scatter plot for the specified species
+    pl + geom_point()
   })
 })
 
