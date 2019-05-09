@@ -8,26 +8,31 @@
 #
 
 library(shiny)
+library(ggplot2)
 
-# Define UI for application that draws a histogram
-shinyUI(fluidPage(
+# Define server logic required to draw a boxplot
+shinyServer(function(input, output) {
   
-  # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  # Expression that generates a boxplot. The expression is
+  # wrapped in a call to renderPlot to indicate that:
+  #
+  #  1) It is "reactive" and therefore should re-execute automatically
+  #     when inputs change
+  #  2) Its output type is a plot
   
-  # Sidebar with a slider input for number of bins 
-  sidebarLayout(
-    sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
-    ),
+  output$boxPlot <- renderPlot({
     
-    # Show a plot of the generated distribution
-    mainPanel(
-       plotOutput("distPlot")
+    # set up the plot
+    pl <- ggplot(data = iris,
+                 #Use aes_string below so that input$trait is interpreted
+                 #correctly.  The other variables need to be quoted
+                 aes_string(x="Species",
+                            y=input$trait,
+                            fill="Species"
+                 )
     )
-  )
-))
+    
+    # draw the boxplot for the specified trait
+    pl + geom_boxplot()
+  })
+})
