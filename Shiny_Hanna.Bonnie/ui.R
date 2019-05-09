@@ -20,7 +20,7 @@ shinyUI(fluidPage( #create the overall page
                    c("setosa",
                      "versicolor",
                      "virginica"
-              
+               
                      )
       )),
     

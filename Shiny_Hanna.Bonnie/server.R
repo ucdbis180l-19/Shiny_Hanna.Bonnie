@@ -22,7 +22,7 @@ shinyServer(function(input, output) {
                  #correctly.  The other variables need to be quoted
                  aes(x=key,y=value))
                  #Sepal.Length,Sepal.Width,Petal.Length,Petal.Width
-    
+     
     
     # draw the boxplot for the specified trait
     pl + geom_boxplot()
