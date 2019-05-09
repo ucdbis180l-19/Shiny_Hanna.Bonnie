@@ -30,10 +30,9 @@ shinyUI(fluidPage( #create the overall page
                 c("Seed length","Seed width","Seed volume", "Seed surface area", "Plant Height")),
       selectInput("colortrait", #the input variable that the value will go into
               "Choose a trait to display:",
-              c("Seed length","Seed width","Seed volume", "Seed surface area", "Plant Height")),
+              c("Seed length","Seed width","Seed volume", "Seed surface area", "Plant Height"))
     
     # Show a plot of the generated distribution
-    mainPanel(plotOutput("boxPlot")
-    )
-  )
+    ),
+    mainPanel(plotOutput("boxPlot"))
 )))
