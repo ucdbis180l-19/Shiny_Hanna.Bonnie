@@ -24,7 +24,7 @@ shinyServer(function(input, output) {
                  #Use aes below so that our data is interpreted
                  #correctly.  The other variables need to be quoted
                  
-                 aes(x=xaxistrait, y=yaxistrait, color=colortrait))
+                 aes(x=input$xaxistrait, y=input$yaxistrait, color=input$colortrait))
                  # pick 2 of the five traits 
     
     
