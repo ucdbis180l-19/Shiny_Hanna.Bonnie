@@ -1,11 +1,3 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
-#
 
 library(shiny)
 
@@ -28,7 +20,13 @@ shinyUI(fluidPage( #create the overall page
                    "Choose a species to display:",
                    c("setosa",
                      "versicolor",
+<<<<<<< HEAD
                      "virginica")
+=======
+                     "virginica"
+               
+                     )
+>>>>>>> 96c982a11b5f6bdbedc430d66a0b9675c0378a03
       )),
     
     # Show a plot of the generated distribution
