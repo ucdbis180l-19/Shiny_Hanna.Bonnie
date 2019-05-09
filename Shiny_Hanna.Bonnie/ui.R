@@ -36,4 +36,4 @@ shinyUI(fluidPage( #create the overall page
     mainPanel(plotOutput("boxPlot")
     )
   )
-))
+)))
