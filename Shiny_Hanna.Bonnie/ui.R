@@ -19,9 +19,8 @@ shinyUI(fluidPage( #create the overall page
                    "Choose a species to display:",
                    c("setosa",
                      "versicolor",
-                     "virginica"
-               
-                     )
+                     "virginica")
+                   
       )),
     
     # Show a plot of the generated distribution
